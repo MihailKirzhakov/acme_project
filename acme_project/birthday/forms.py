@@ -10,6 +10,7 @@ from .validators import real_age
 
 BEATLES = {'Джон Леннон', 'Пол Маккартни', 'Джордж Харрисон', 'Ринго Старр'}
 
+
 # Для использования формы с моделями меняем класс на forms.ModelForm.
 class BirthdayForm(forms.ModelForm):
     # Удаляем все описания полей.
@@ -18,6 +19,7 @@ class BirthdayForm(forms.ModelForm):
     class Meta:
         # Указываем модель, на основе которой должна строиться форма.
         model = Birthday
+        exclude = ('author',)
         # Указываем, что надо отобразить все поля.
         fields = "__all__"
         widgets = {"birthday": forms.DateInput(attrs={"type": "date"})}
